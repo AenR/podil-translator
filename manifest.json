@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Podil - Translate OLX, Otodom & Otomoto",
+  "version": "1.0",
+  "description": "Translates descriptions on OLX, Otodom, and Otomoto to English automatically.",
+  "permissions": [],
+  "host_permissions": [
+    "https://www.olx.pl/*",
+    "https://www.otodom.pl/*",
+    "https://www.otomoto.pl/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "emreerentan1@gmail.com",
+    "data_collection_permissions": {
+      "required": ["none"]
+    }
+  }
+},
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.olx.pl/*",
+        "https://www.otodom.pl/*",
+        "https://www.otomoto.pl/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
+}
