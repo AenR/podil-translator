@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/logo.jpg" alt="Podil Translator Logo" width="128" height="128" style="border-radius: 16px; object-fit: cover;">
+  <img src="assets/logo.jpg" alt="Podil Translator Logo" width="128" height="128">
 
   # Podil Translator
 
@@ -39,13 +39,13 @@ It seamlessly detects description boxes on **OLX.pl**, **Otodom.pl**, and **Otom
 <div align="center">
 
 ### 1. OLX.pl Integration
-![OLX Demo](assets/olx-demo.png)
+![OLX Demo](./assets/olx-demo.jpg)
 
 ### 2. Otodom.pl Integration
-![Otodom Demo](assets/otodom-demo.png)
+![Otodom Demo](./assets/otodom-demo.jpg)
 
 ### 3. Otomoto.pl Integration
-![Otomoto Demo](assets/otomoto-demo.png)
+![Otomoto Demo](./assets/otomoto-demo.jpg)
 
 </div>
 
@@ -53,8 +53,19 @@ It seamlessly detects description boxes on **OLX.pl**, **Otodom.pl**, and **Otom
 
 ## 🚀 Installation
 
-### Developer Mode (Chrome, Edge, Brave)
+### 🛍️ Web Stores
+* **Mozilla Firefox Add-ons:** [Get Podil Translator](https://addons.mozilla.org/en-US/firefox/addon/podil-translator/) (Under Review)
+* **Chrome Web Store:** ⏳ *Coming Soon*
+
+---
+
+### 🔧 Manual Installation (Developer Mode)
 
 1. Clone or download this repository:
    ```bash
-   git clone [https://github.com/AenR/podil-translator.git](https://github.com/AenR/podil-translator.git)
+   git clone https://github.com/AenR/podil-translator.git
+   ```
+
+2. Open chrome://extensions/ or about:debugging in your browser.
+
+3. Enable Developer Mode and load the project folder using Load unpacked / Load Temporary Add-on.
