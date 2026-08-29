@@ -49,6 +49,11 @@
     if (contentClass) body.className = contentClass;
     body.style.whiteSpace = "pre-wrap";
     body.style.marginTop = "12px";
+    // Otomoto CSS kısıtlamalarını kaldırma
+    body.style.maxHeight = "none";
+    body.style.height = "auto";
+    body.style.overflow = "visible";
+    body.style.webkitLineClamp = "none";
     body.textContent = translatedText;
 
     // 3. Tıklama Olayı (Toggle Yapısı)
