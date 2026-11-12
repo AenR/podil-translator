@@ -331,66 +331,101 @@
     return container;
   }
 
-  // 7. Set container to Loading State
+  // 7. Helper to safely render header without innerHTML
+  function updateHeader(header, showLoadingBadge = false) {
+    while (header.firstChild) {
+      header.removeChild(header.firstChild);
+    }
+
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'podil-header-title';
+    titleSpan.textContent = 'DESCRIPTION';
+    header.appendChild(titleSpan);
+
+    if (showLoadingBadge) {
+      const badgeSpan = document.createElement('span');
+      badgeSpan.className = 'podil-badge podil-badge-loading';
+      badgeSpan.textContent = 'Translating...';
+      header.appendChild(badgeSpan);
+    }
+
+    const toggleSpan = document.createElement('span');
+    toggleSpan.className = 'podil-toggle-icon';
+    toggleSpan.textContent = '▲';
+    header.appendChild(toggleSpan);
+  }
+
+  // 8. Set container to Loading State
   function renderLoadingState(container) {
     const header = container.querySelector('.podil-header');
     const body = container.querySelector('.podil-body');
 
-    header.innerHTML = `
-      <span class="podil-header-title">DESCRIPTION</span>
-      <span class="podil-badge podil-badge-loading">Translating...</span>
-      <span class="podil-toggle-icon">▲</span>
-    `;
+    updateHeader(header, true);
 
-    body.innerHTML = `
-      <div class="podil-loading-box">
-        <div class="podil-spinner"></div>
-        <span>Translating description...</span>
-      </div>
-    `;
+    while (body.firstChild) {
+      body.removeChild(body.firstChild);
+    }
+
+    const loadingBox = document.createElement('div');
+    loadingBox.className = 'podil-loading-box';
+
+    const spinner = document.createElement('div');
+    spinner.className = 'podil-spinner';
+
+    const loadingText = document.createElement('span');
+    loadingText.textContent = 'Translating description...';
+
+    loadingBox.appendChild(spinner);
+    loadingBox.appendChild(loadingText);
+    body.appendChild(loadingBox);
     body.style.display = 'block';
   }
 
-  // 8. Set container to Success State
+  // 9. Set container to Success State
   function renderSuccessState(container, translatedText) {
     const header = container.querySelector('.podil-header');
     const body = container.querySelector('.podil-body');
 
-    header.innerHTML = `
-      <span class="podil-header-title">DESCRIPTION</span>
-      <span class="podil-toggle-icon">▲</span>
-    `;
+    updateHeader(header, false);
 
-    body.innerHTML = '';
+    while (body.firstChild) {
+      body.removeChild(body.firstChild);
+    }
+
     body.textContent = translatedText;
     body.style.display = 'block';
   }
 
-  // 9. Set container to Error State with Retry Button
+  // 10. Set container to Error State with Retry Button
   function renderErrorState(container, errorMessage, onRetry) {
     const header = container.querySelector('.podil-header');
     const body = container.querySelector('.podil-body');
 
-    header.innerHTML = `
-      <span class="podil-header-title">DESCRIPTION</span>
-      <span class="podil-toggle-icon">▲</span>
-    `;
+    updateHeader(header, false);
 
-    body.innerHTML = `
-      <div class="podil-error-box">
-        <span>⚠️ Translation failed (${errorMessage}).</span>
-        <button type="button" class="podil-retry-btn">↻ Retry</button>
-      </div>
-    `;
-    body.style.display = 'block';
-
-    const retryBtn = body.querySelector('.podil-retry-btn');
-    if (retryBtn) {
-      retryBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        onRetry();
-      });
+    while (body.firstChild) {
+      body.removeChild(body.firstChild);
     }
+
+    const errorBox = document.createElement('div');
+    errorBox.className = 'podil-error-box';
+
+    const errorSpan = document.createElement('span');
+    errorSpan.textContent = '⚠️ Translation failed (' + errorMessage + ').';
+
+    const retryBtn = document.createElement('button');
+    retryBtn.type = 'button';
+    retryBtn.className = 'podil-retry-btn';
+    retryBtn.textContent = '↻ Retry';
+    retryBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      onRetry();
+    });
+
+    errorBox.appendChild(errorSpan);
+    errorBox.appendChild(retryBtn);
+    body.appendChild(errorBox);
+    body.style.display = 'block';
   }
 
   // 10. Main Translation Controller
