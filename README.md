@@ -54,8 +54,8 @@ It automatically detects listing descriptions on **OLX.pl**, **Otodom.pl**, and 
 ## 🚀 Installation
 
 ### 🛍️ Web Stores
-* **Mozilla Firefox Add-ons:** [Get Podil Translator](https://addons.mozilla.org/en-US/firefox/addon/podil-translator/) *(Under Review)*
-* **Chrome Web Store:** ⏳ *Coming Soon*
+* **Mozilla Firefox Add-ons:** [Get Podil Translator](https://addons.mozilla.org/en-US/firefox/addon/podil-translator/)
+* **Opera Add-ons:** ⏳ *Coming Soon*
 
 ---
 
