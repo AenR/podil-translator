@@ -1,23 +1,28 @@
 {
   "manifest_version": 3,
   "name": "Podil - Translate OLX, Otodom & Otomoto",
-  "version": "1.0",
-  "description": "Translates descriptions on OLX, Otodom, and Otomoto to English automatically.",
-  "permissions": [],
+  "version": "1.1",
+  "description": "Translates listing descriptions on OLX, Otodom, and Otomoto automatically to your chosen language.",
+  "permissions": [
+    "storage"
+  ],
   "host_permissions": [
-    "https://www.olx.pl/*",
-    "https://www.otodom.pl/*",
-    "https://www.otomoto.pl/*",
     "https://translate.googleapis.com/*"
   ],
-  "browser_specific_settings": {
-  "gecko": {
-    "id": "emreerentan1@gmail.com",
-    "data_collection_permissions": {
-      "required": ["none"]
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Podil Translator",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png",
+      "128": "icons/icon-128.png"
     }
-  }
-},
+  },
   "content_scripts": [
     {
       "matches": [
@@ -30,6 +35,15 @@
     }
   ],
   "icons": {
-    "128": "icon.png"
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "podil-translator@emreerentan"
+    }
   }
 }
