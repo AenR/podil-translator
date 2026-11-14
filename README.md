@@ -38,6 +38,9 @@ It automatically detects listing descriptions on **OLX.pl**, **Otodom.pl**, and 
 
 <div align="center">
 
+### 0. Menu Screenshot
+![OLX Demo](./assets/menu.jpg)
+
 ### 1. OLX.pl Integration
 ![OLX Demo](./assets/olx-demo.jpg)
 
